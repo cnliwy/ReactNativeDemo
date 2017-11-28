@@ -1,6 +1,6 @@
 'use strict';
 
-import React from 'react';
+import React,{Component}  from 'react';
 
 import {
   Alert,
@@ -12,15 +12,24 @@ import {
   TextInput,
   Dimensions,//获取屏幕宽高
 } from 'react-native';
+import { StackNavigator } from 'react-navigation'
 
-import {Navigator} from 'react-native-deprecated-custom-components';
+import LoginController from './view/LoginController'
+import MainController from './view/MainController'
 
-var LoginController = require("./view/LoginController.js");
+// 注册导航
+const Navigator  = StackNavigator({
+    Login: { screen: LoginController},
+    Main: {screen: MainController}
+}, {
+            headerBackTitle:null,
+             headerTintColor:'#333333',
+             showIcon:true,
+            swipeEnabled:false,
+            animationEnabled:false,
+     },
+ );
 
-const defaultRoute = {
-  component: LoginController,
-  title: '登录',
-};
 
 class NativeWorld extends React.Component {
   //构造函数
@@ -29,15 +38,11 @@ class NativeWorld extends React.Component {
   }
 
   render() {
-    return (
-        <Navigator
-                initialRoute={defaultRoute}
-               renderScene={(route, navigator) => {
-                               return <route.component navigator={navigator} {...route.args}/>
-                               }
-                           }/>
-    )
-  }
+   return(
+       <Navigator
+       />
+       );
+   }
 }
 var styles = StyleSheet.create({
     input:{

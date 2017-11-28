@@ -1,7 +1,6 @@
 'use strict';
 
-import React from 'react';
-
+import React,{Component} from 'react';
 import {
   Alert,
   Button,
@@ -11,10 +10,7 @@ import {
   View,
   TextInput,
   Dimensions,//获取屏幕宽高
-  Navigator,
 } from 'react-native';
-var main = require("./MainController.js");
-var navigator = null;
 
 const registerAction = () => {
   Alert.alert('敬请期待！');
@@ -26,16 +22,14 @@ class LoginController extends React.Component {
     super(props);
     this.state = {userinput: '',pwdinput:''};
   }
-//    const { navigate } = this.props.navigation;
+
   loginAction(){
-//    Alert.alert(this.state.userinput + "登录成功！");
-//        navigate('main', { username:this.state.userinput });
-    const { navigator } = this.props;
-    navigator.push(
-                  component:main,
-                  username:'liwy'
-            );
+    this.props.navigation.navigate('Main',{username:'李天王'});
   }
+
+   static navigationOptions = {
+           title: '登录2333',
+       };
 
   render() {
     return (

@@ -10,36 +10,32 @@ import {
   View,
   TextInput,
   Dimensions,//获取屏幕宽高
-  navigator
 } from 'react-native';
 
 const registerAction = () => {
   Alert.alert('敬请期待！');
 };
-
+var username = null;
 class MainController extends React.Component {
   //构造函数
   constructor(props) {
     super(props);
-    this.state = {
-        username:null,
-    }
   }
-  componentDidMount(){
-    this.setState({
-        username:this.state.username
-    })
-  }
+   componentDidMount() {
+         const {params} = this.props.navigation.state;
+         username = params.username;
+     }
+
     findAction(){
         Alert.alert("我是："+ this.username);
     }
-  backAction(){
-    const {navigator} = this.props;
-    if(navigator){
-        navigator.pop();
-    }
-  }
 
+  backAction(){
+    this.props.navigation.goBack();
+  }
+    static navigationOptions = {
+             title: '我的首页',
+         };
   render() {
     return (
     <View style={{flex: 1, flexDirection: 'column'}}>
