@@ -28,15 +28,12 @@ class LoginController extends React.Component {
   }
 
    static navigationOptions = {
-           title: '登录2333',
+           headerTitle: '登录',
        };
 
   render() {
     return (
     <View style={{flex: 1, flexDirection: 'column'}}>
-        <View style={styles.title}>
-             <Text style={styles.hello}>登 录</Text>
-        </View>
           <View style={styles.container}>
             <TextInput placeholder="请输入账号" style={styles.input}
                 onChangeText={(userinput) => this.setState({userinput})}/>
@@ -50,6 +47,10 @@ class LoginController extends React.Component {
                                      <Button onPress={registerAction} title="注册"/>
                                   </View>
           </View>
+
+          <View style={styles.title}>
+                       <Text style={styles.hello}>create by liwy</Text>
+                  </View>
       </View>
     )
   }
@@ -70,7 +71,6 @@ var styles = StyleSheet.create({
     title: {
     height:50,
     justifyContent: 'center',
-    backgroundColor:'powderblue'
   },
   container: {
     flex: 1,
@@ -80,6 +80,6 @@ var styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  }
+  },
 });
 export default LoginController;

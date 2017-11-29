@@ -16,10 +16,12 @@ import { StackNavigator } from 'react-navigation'
 
 import LoginController from './view/LoginController'
 import MainController from './view/MainController'
+import FriendListController from './view/FriendListController'
 
 // 注册导航
 const Navigator  = StackNavigator({
     Login: { screen: LoginController},
+    FriendList: { screen: FriendListController},
     Main: {screen: MainController}
 }, {
             headerBackTitle:null,
